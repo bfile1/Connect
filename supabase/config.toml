@@ -1,0 +1,3 @@
+[functions.push-notifications]
+# The handler validates user JWTs itself. Webhooks use a separate secret header.
+verify_jwt = false

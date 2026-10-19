@@ -29,3 +29,8 @@ Connect this GitHub repository in Workers & Pages > Create application > Pages >
 Serve `index.html`, `style.css`, `app.js`, `cloud.js`, and `config.js` on an HTTPS static host. These require no build. Do not include the `supabase` directory in the website upload. The Node server is an alternative for a host with Node support. Hosting credentials are not configured in this workspace; the site has not been deployed.
 
 The user reported successfully running both SQL files and creating the three accounts. Live authenticated multi-device validation remains pending; browser flows were checked with simulated Supabase responses.
+
+## Phone notifications
+Parent-only Web Push is implemented, including a Home Screen manifest, service worker, local key-generation page, and Supabase database/Edge Function components. **It requires dashboard activation before alerts can be delivered.** Follow [the complete activation guide](supabase/PUSH-SETUP.md), starting with the additive [notifications migration](supabase/notifications.sql). Each parent then enables alerts on their own phone; iPhones require a Home Screen installation. Alerts never include private note/message content.
+
+Run `npm ci` then `npm test` for the database, access-control, retry, and service-worker tests. The tests use local PostgreSQL-compatible PGlite and simulated delivery, and do not send real pushes. The hosted function also needs the keys and webhook/cron setup described in the guide.
