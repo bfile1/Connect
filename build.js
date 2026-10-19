@@ -2,7 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const output = path.join(__dirname, 'dist');
 fs.mkdirSync(output, { recursive: true });
-for (const file of ['index.html', 'style.css', 'app.js', 'cloud.js', 'config.js', 'push.js', 'sw.js', 'manifest.webmanifest', 'icon.svg', 'icon-192.png', 'icon-512.png', 'push-setup.html']) {
+for (const file of ['index.html', 'style.css', 'app.js', 'cloud.js', 'config.js', 'push.js', 'sw.js', 'manifest.webmanifest', 'icon.svg', 'family-icon.png', 'icon-192.png', 'icon-512.png', 'push-setup.html']) {
  fs.copyFileSync(path.join(__dirname, file), path.join(output, file));
 }
 console.log('Built static website in dist/');
