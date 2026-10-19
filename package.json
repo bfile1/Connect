@@ -1,0 +1,10 @@
+{
+  "name": "family-connect",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check app.js && node --check cloud.js && node --check config.js && node --check build.js",
+    "build": "node build.js"
+  }
+}
