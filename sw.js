@@ -2,7 +2,7 @@ self.addEventListener('push',event=>{
  let payload;try{payload=event.data?.json()}catch{}
  event.waitUntil(self.registration.showNotification(payload?.title||'Connect',{
   body:payload?.body||'There’s a new family update. Open Connect to see it.',
-  icon:'/family-icon.png',badge:'/icon.svg',tag:payload?.tag||'connect-update',
+  icon:'/family-icon.png?v=2',badge:'/icon.svg',tag:payload?.tag||'connect-update',
   data:{url:self.location.origin+'/'},
  }));
 });
