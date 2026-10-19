@@ -1,4 +1,4 @@
-const people=[{name:'Mum',emoji:'🌿',role:'Parent'},{name:'Dad',emoji:'🌸',role:'Parent'},{name:'Buddy',emoji:'🦁',role:'Age 7'},{name:'Archie',emoji:'🐻',role:'Age 9'},{name:'Ashton',emoji:'🦊',role:'Age 11'}];
+const people=[{name:'Dad',emoji:'🌿',role:'Parent'},{name:'Mum',emoji:'🌸',role:'Parent'},{name:'Buddy',emoji:'🦁',role:'Age 7'},{name:'Archie',emoji:'🐻',role:'Age 9'},{name:'Ashton',emoji:'🦊',role:'Age 11'}];
 let data={checks:{},messages:[],ideas:[]};
 let current=null,tab='checkin',mood=null;
 const $=s=>document.querySelector(s);const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
