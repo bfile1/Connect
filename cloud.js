@@ -11,7 +11,7 @@ async function rest(table,options={}){await refreshSession();return request('/re
 async function loadCloud(){
  const rows=await rest('connect_members?select=family_id,slots');membership=rows[0];if(!membership)throw new Error('This account has not been added to your family yet.');
  const family=encodeURIComponent(membership.family_id);
- const [checks,messages,ideas,votes]=await Promise.all(['connect_checkins','connect_messages','connect_ideas','connect_votes'].map(t=>rest(t+'?family_id=eq.'+family+'&select=*'+(t==='connect_messages'||t==='connect_ideas'?'&order=created_at.asc':''))));
+ const [checks,messages,ideas,votes]=await Promise.all(['connect_checkins','connect_messages','connect_ideas','connect_votes'].map(t=>rest(t+'?family_id=eq.'+family+'&select=*'+(t==='connect_checkins'?'&day=eq.'+day():(t==='connect_messages'||t==='connect_ideas'?'&order=created_at.asc':'')))));
  const next={checks:{},messages:messages.map(x=>({from:x.person,to:x.recipient,text:x.body})),ideas:ideas.map(x=>({id:x.id,from:x.person,category:x.category,text:x.body,votes:votes.filter(v=>v.idea_id===x.id).map(v=>v.person)}))};
  checks.forEach(x=>{next.checks[x.day]??={};next.checks[x.day][x.person]=x});data=next;
 }
